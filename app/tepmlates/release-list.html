@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-6">
+      <!--Sidebar content-->
+      <div class="searchbox">
+      Искать: <input ng-model="query">
+      Сортировать:
+      <select ng-model="orderProp">
+        <option ng-click="pagination()" value="name">Имя релиза</option>
+        <option ng-click="pagination()" value="data">Дата релиза</option>
+        <option ng-click="pagination()" value="showRate">Рейтинг</option>
+      </select>
+      </div>
+
+    </div>
+    <div class="col-lg-12 col-md-6">
+      <!--Body content-->
+
+      <ul class="releases">
+        <li ng-repeat="release in pagedItems[currentPage] | filter:query | orderBy:orderProp:reverse" class="thumbnail">
+          <a href="#/releases/{{release.id}}" class="thumb"><img ng-src="{{release.imageUrl}}"></a>
+          <a href="#/releases/{{release.id}}">{{release.name}}</a>
+          <p>Краткое описание: {{release.snippet}}</p>
+          <p>Дата публикации: {{release.data}}</p>
+          <p>Кол-во показов: {{release.showRate}}</p>
+        </li>
+      </ul>
+
+    <section>
+  <nav role="navigation">
+    <ul class="cd-pagination">
+      <li ng-class="{disabled: currentPage == 0}" class="button"><a href ng-click="prevPage()">Prev</a></li>
+      <li ng-repeat="n in range(pagedItems.length)"
+          ng-class="{active: n == currentPage}"
+          ng-click="setPage()"><a href ng-bind="n + 1">1</a></li>
+      <li class="button" ng-class="{disabled: currentPage == pagedItems.length - 1}"><a href ng-click="nextPage()">Next</a></li>
+    </ul>
+  </nav> <!-- cd-pagination-wrapper -->
+</section>
+
+
+    </div>
+  </div>
+</div>

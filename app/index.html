@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" ng-app="musicsApp">
+<head>
+  <meta charset="utf-8">
+  <title>AMBRELA releases</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/modernizr.js"></script>
+</head>
+<body>
+	<div class="wrapper__header">
+		<div class="header">
+			<div class="interior-artist-title">
+        		<h3 class="interior-type">Artist</h3>
+       			<h1>Ambrela</h1>
+      		</div>
+			<div class="header__logo">
+				<a href="#"><img src="img/logo.jpg" height="200px"></a>
+			</div>
+		</div>
+	</div>
+    <div ng-view></div>
+
+</body>
+</html>
